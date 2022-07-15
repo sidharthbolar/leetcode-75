@@ -11,15 +11,15 @@ Output: [1,2,3,6,7,11,14,4,8,12,5,9,13,10]
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        stack = [root]
         result = []
-        while len(stack) > 0:
-            curr = stack.pop()
-            if not curr: continue
+        stack = []
+        if not root:
+            return result
+        stack.append(root)
 
-            if not curr.children: continue
-            l = len(curr.children)
-            while l > 0:
-                stack.append(curr.children[l - 1])
-                l -= 1
+        while len(stack) > 0:
+            current = stack.pop()
+            result.append(current.val)
+            for i in range(len(current.children) - 1, -1, -1):
+                stack.append(current.children[i])
         return result
