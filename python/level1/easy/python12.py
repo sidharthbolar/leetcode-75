@@ -19,17 +19,19 @@ Output: []
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        result = []
+    if not root:
+        return []
 
-        def dfs(node, depth):
-            if not node:
-                return
-            if depth >= len(result):
-                result.append([])
-            result[depth].append(node.val)
-            dfs(node.left, depth + 1)
-            dfs(node.right, depth + 1)
-
-        dfs(root, 0)
-        return result
+    ans = []
+    q = [root]
+    while q:
+        length = len(q)
+        ans.append([])
+        for _ in range(length):
+            node = q.pop(0)
+            ans[-1].append(node.val)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+    return ans
