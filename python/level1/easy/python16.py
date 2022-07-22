@@ -20,7 +20,7 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 
 '''
-
+#DP Solution
 class Solution:
     def climbStairs(self, n: int) -> int:
         lookup = [1 , 2]
