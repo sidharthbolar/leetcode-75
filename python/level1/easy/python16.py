@@ -20,3 +20,11 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 
 '''
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        lookup = [1 , 2]
+        f = n-1
+        for i in range(2 , n):
+            lookup[i%2] = lookup[0] + lookup[1]
+        return lookup[f%2]
