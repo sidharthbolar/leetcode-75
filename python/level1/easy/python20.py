@@ -11,7 +11,7 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 '''
 
-
+#On2
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
@@ -21,3 +21,11 @@ class Solution:
                 if nums[i] + nums[j] == target:
                     return [i, j]
         return []
+#On
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dic = {}
+        for i, n in enumerate(nums):
+            if n in dic:
+                return [dic[n], i] # case when match is found!
+            dic[target-n] = i # add what you need for the given element
