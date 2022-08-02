@@ -15,7 +15,6 @@ Explanation: Bulls are connected with a '|' and cows are underlined:
   |
 "7810"
 '''
-# TODO Review solution
 
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
